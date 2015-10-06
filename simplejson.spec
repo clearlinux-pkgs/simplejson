@@ -4,7 +4,7 @@
 #
 Name     : simplejson
 Version  : 3.8.0
-Release  : 20
+Release  : 21
 URL      : https://pypi.python.org/packages/source/s/simplejson/simplejson-3.8.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/s/simplejson/simplejson-3.8.0.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
@@ -18,7 +18,6 @@ BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
-BuildRequires : simplejson
 
 %description
 simplejson is a simple, fast, complete, correct and extensible
@@ -45,7 +44,7 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-python setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python setup.py test
 %install
 rm -rf %{buildroot}
 python2 setup.py build -b py2 install --root=%{buildroot}
