@@ -4,7 +4,7 @@
 #
 Name     : simplejson
 Version  : 3.8.2
-Release  : 25
+Release  : 26
 URL      : https://pypi.python.org/packages/source/s/simplejson/simplejson-3.8.2.tar.gz
 Source0  : https://pypi.python.org/packages/source/s/simplejson/simplejson-3.8.2.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
