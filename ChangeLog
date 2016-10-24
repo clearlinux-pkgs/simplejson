@@ -1,3 +1,14 @@
+Version 3.9.0 released 2016-10-21
+
+* Workaround for bad behavior in string subclasses
+  https://github.com/simplejson/simplejson/issues/144
+* Fix warnings flagged by -3
+  https://github.com/simplejson/simplejson/pull/146
+* Update readthedocs documentation links
+  https://github.com/simplejson/simplejson/pull/137
+* Add build status badge to README
+  https://github.com/simplejson/simplejson/pull/134
+
 Version 3.8.2 released 2016-02-14
 
 * Fix implicit cast compiler warning in _speedups.c
@@ -318,7 +329,7 @@ Version 2.2.0 released 2011-09-04
 * Force unicode linebreak characters to be escaped (U+2028 and U+2029)
   http://timelessrepo.com/json-isnt-a-javascript-subset
 * Moved documentation from a git submodule to
-  http://simplejson.readthedocs.org/
+  https://simplejson.readthedocs.io/
 
 Version 2.1.6 released 2011-05-08
 
