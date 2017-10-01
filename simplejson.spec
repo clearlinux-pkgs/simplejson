@@ -4,13 +4,14 @@
 #
 Name     : simplejson
 Version  : 3.11.1
-Release  : 35
+Release  : 36
 URL      : https://github.com/simplejson/simplejson/archive/v3.11.1.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.11.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : AFL-2.1
 Requires: simplejson-legacypython
+Requires: simplejson-python3
 Requires: simplejson-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -38,9 +39,18 @@ legacypython components for the simplejson package.
 Summary: python components for the simplejson package.
 Group: Default
 Requires: simplejson-legacypython
+Requires: simplejson-python3
 
 %description python
 python components for the simplejson package.
+
+
+%package python3
+Summary: python3 components for the simplejson package.
+Group: Default
+
+%description python3
+python3 components for the simplejson package.
 
 
 %prep
@@ -51,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505071481
+export SOURCE_DATE_EPOCH=1506869436
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -61,7 +71,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python setup.py test
 %install
-export SOURCE_DATE_EPOCH=1505071481
+export SOURCE_DATE_EPOCH=1506869436
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -77,5 +87,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
