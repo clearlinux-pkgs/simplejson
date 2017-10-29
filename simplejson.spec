@@ -4,7 +4,7 @@
 #
 Name     : simplejson
 Version  : 3.11.1
-Release  : 38
+Release  : 39
 URL      : https://github.com/simplejson/simplejson/archive/v3.11.1.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.11.1.tar.gz
 Summary  : No detailed summary available
