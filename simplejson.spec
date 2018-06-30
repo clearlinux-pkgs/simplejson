@@ -4,21 +4,24 @@
 #
 Name     : simplejson
 Version  : 3.13.2
-Release  : 50
+Release  : 51
 URL      : https://github.com/simplejson/simplejson/archive/v3.13.2.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.13.2.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : AFL-2.1
 Requires: simplejson-python3
+Requires: simplejson-license
 Requires: simplejson-python
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : py
 BuildRequires : pytest
-
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 
 %description
 simplejson
@@ -33,6 +36,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the simplejson package.
+
+
+%package license
+Summary: license components for the simplejson package.
+Group: Default
+
+%description license
+license components for the simplejson package.
 
 
 %package python
@@ -61,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528573765
+export SOURCE_DATE_EPOCH=1530377193
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -71,8 +82,10 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python setup.py test
 %install
-export SOURCE_DATE_EPOCH=1528573765
+export SOURCE_DATE_EPOCH=1530377193
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/simplejson
+cp LICENSE.txt %{buildroot}/usr/share/doc/simplejson/LICENSE.txt
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -85,6 +98,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/simplejson/LICENSE.txt
 
 %files python
 %defattr(-,root,root,-)
