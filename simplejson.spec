@@ -4,39 +4,24 @@
 #
 Name     : simplejson
 Version  : 3.13.2
-Release  : 57
+Release  : 58
 URL      : https://github.com/simplejson/simplejson/archive/v3.13.2.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.13.2.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : AFL-2.1
-Requires: simplejson-python3
-Requires: simplejson-license
-Requires: simplejson-python
-BuildRequires : pbr
-BuildRequires : pip
+Requires: simplejson-license = %{version}-%{release}
+Requires: simplejson-python = %{version}-%{release}
+Requires: simplejson-python3 = %{version}-%{release}
+BuildRequires : buildreq-distutils3
 BuildRequires : py
 BuildRequires : pytest
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
 
 %description
 simplejson
 ----------
 .. image:: https://travis-ci.org/simplejson/simplejson.svg?branch=master
 :target: https://travis-ci.org/simplejson/simplejson
-
-%package legacypython
-Summary: legacypython components for the simplejson package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the simplejson package.
-
 
 %package license
 Summary: license components for the simplejson package.
@@ -49,7 +34,7 @@ license components for the simplejson package.
 %package python
 Summary: python components for the simplejson package.
 Group: Default
-Requires: simplejson-python3
+Requires: simplejson-python3 = %{version}-%{release}
 
 %description python
 python components for the simplejson package.
@@ -72,9 +57,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530377193
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554328381
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
@@ -82,12 +67,11 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python setup.py test
 %install
-export SOURCE_DATE_EPOCH=1530377193
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/simplejson
-cp LICENSE.txt %{buildroot}/usr/share/doc/simplejson/LICENSE.txt
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/package-licenses/simplejson
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/simplejson/LICENSE.txt
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -95,13 +79,9 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
-
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/simplejson/LICENSE.txt
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/simplejson/LICENSE.txt
 
 %files python
 %defattr(-,root,root,-)
