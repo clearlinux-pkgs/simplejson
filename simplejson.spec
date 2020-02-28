@@ -4,7 +4,7 @@
 #
 Name     : simplejson
 Version  : 3.16.1
-Release  : 64
+Release  : 65
 URL      : https://github.com/simplejson/simplejson/archive/v3.16.1/simplejson-3.16.1.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.16.1/simplejson-3.16.1.tar.gz
 Summary  : No detailed summary available
@@ -51,13 +51,15 @@ python3 components for the simplejson package.
 
 %prep
 %setup -q -n simplejson-3.16.1
+cd %{_builddir}/simplejson-3.16.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570212256
+export SOURCE_DATE_EPOCH=1582922271
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -75,7 +77,7 @@ PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python setup.py test
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/simplejson
-cp LICENSE.txt %{buildroot}/usr/share/package-licenses/simplejson/LICENSE.txt
+cp %{_builddir}/simplejson-3.16.1/LICENSE.txt %{buildroot}/usr/share/package-licenses/simplejson/e0d52aebcf1a0f2270f61d29aebbaf29f8c91e2c
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -86,7 +88,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/simplejson/LICENSE.txt
+/usr/share/package-licenses/simplejson/e0d52aebcf1a0f2270f61d29aebbaf29f8c91e2c
 
 %files python
 %defattr(-,root,root,-)
