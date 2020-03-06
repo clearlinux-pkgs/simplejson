@@ -4,10 +4,10 @@
 #
 Name     : simplejson
 Version  : 3.16.1
-Release  : 65
+Release  : 66
 URL      : https://github.com/simplejson/simplejson/archive/v3.16.1/simplejson-3.16.1.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.16.1/simplejson-3.16.1.tar.gz
-Summary  : No detailed summary available
+Summary  : Simple, fast, extensible JSON encoder/decoder for Python
 Group    : Development/Tools
 License  : AFL-2.1
 Requires: simplejson-license = %{version}-%{release}
@@ -44,6 +44,7 @@ python components for the simplejson package.
 Summary: python3 components for the simplejson package.
 Group: Default
 Requires: python3-core
+Provides: pypi(simplejson)
 
 %description python3
 python3 components for the simplejson package.
@@ -58,8 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582922271
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583526878
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
