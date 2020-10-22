@@ -1,6 +1,1 @@
 # This file contains recursive sources that require this package
-osc-lib
-python-manilaclient
-python-neutronclient
-python-novaclient
-python-troveclient
