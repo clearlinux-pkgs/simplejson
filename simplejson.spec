@@ -4,7 +4,7 @@
 #
 Name     : simplejson
 Version  : 3.16.1
-Release  : 73
+Release  : 74
 URL      : https://github.com/simplejson/simplejson/archive/v3.16.1/simplejson-3.16.1.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.16.1/simplejson-3.16.1.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
