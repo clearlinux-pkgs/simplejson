@@ -4,9 +4,9 @@
 #
 Name     : simplejson
 Version  : 3.17.6
-Release  : 83
-URL      : https://github.com/simplejson/simplejson/archive/v3.17.6/simplejson-3.17.6.tar.gz
-Source0  : https://github.com/simplejson/simplejson/archive/v3.17.6/simplejson-3.17.6.tar.gz
+Release  : 84
+URL      : https://github.com/simplejson/simplejson/archive/refs/tags/v3.17.6.tar.gz
+Source0  : https://github.com/simplejson/simplejson/archive/refs/tags/v3.17.6.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
 Group    : Development/Tools
 License  : AFL-2.1
@@ -14,8 +14,8 @@ Requires: simplejson-license = %{version}-%{release}
 Requires: simplejson-python = %{version}-%{release}
 Requires: simplejson-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : py
-BuildRequires : pytest
+BuildRequires : pypi-py
+BuildRequires : pypi-pytest
 
 %description
 simplejson
@@ -62,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637608624
+export SOURCE_DATE_EPOCH=1650514492
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
