@@ -5,7 +5,7 @@
 #
 Name     : simplejson
 Version  : 3.19.1
-Release  : 91
+Release  : 92
 URL      : https://github.com/simplejson/simplejson/archive/v3.19.1/simplejson-3.19.1.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.19.1/simplejson-3.19.1.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683239241
+export SOURCE_DATE_EPOCH=1685505004
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
