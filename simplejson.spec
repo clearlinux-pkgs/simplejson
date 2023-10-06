@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : simplejson
-Version  : 3.19.1
-Release  : 93
-URL      : https://github.com/simplejson/simplejson/archive/v3.19.1/simplejson-3.19.1.tar.gz
-Source0  : https://github.com/simplejson/simplejson/archive/v3.19.1/simplejson-3.19.1.tar.gz
+Version  : 3.19.2
+Release  : 94
+URL      : https://github.com/simplejson/simplejson/archive/v3.19.2/simplejson-3.19.2.tar.gz
+Source0  : https://github.com/simplejson/simplejson/archive/v3.19.2/simplejson-3.19.2.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
 Group    : Development/Tools
 License  : AFL-2.1
@@ -58,10 +58,10 @@ python3 components for the simplejson package.
 
 
 %prep
-%setup -q -n simplejson-3.19.1
-cd %{_builddir}/simplejson-3.19.1
+%setup -q -n simplejson-3.19.2
+cd %{_builddir}/simplejson-3.19.2
 pushd ..
-cp -a simplejson-3.19.1 buildavx2
+cp -a simplejson-3.19.2 buildavx2
 popd
 
 %build
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695930601
+export SOURCE_DATE_EPOCH=1696604872
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
