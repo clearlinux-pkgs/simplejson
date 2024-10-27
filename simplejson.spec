@@ -7,7 +7,7 @@
 #
 Name     : simplejson
 Version  : 3.19.3
-Release  : 96
+Release  : 97
 URL      : https://github.com/simplejson/simplejson/archive/v3.19.3/simplejson-3.19.3.tar.gz
 Source0  : https://github.com/simplejson/simplejson/archive/v3.19.3/simplejson-3.19.3.tar.gz
 Summary  : Simple, fast, extensible JSON encoder/decoder for Python
